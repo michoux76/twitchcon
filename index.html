@@ -8,7 +8,7 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <div id="app">{{ attendees }}</div>
 
     <script>
@@ -21,7 +21,8 @@
         mounted() {
             fetch('https://www.twitchcon.com/api/amsterdam-2022/attendees/',{mode: 'no-cors'}).then(e=>e.json()).then(data=>this.attendees=data)
         }
-    }).mount('#app')
+    }).mount('#app');
+
     </script>
     <!-- https://www.twitchcon.com/api/amsterdam-2022/attendees/ -->
 </body>
