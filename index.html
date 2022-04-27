@@ -7,7 +7,22 @@
     <title>TwitchCon Attendees</title>
 </head>
 <body>
-    <div id="app"></div>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="app">{{ attendees }}</div>
+
+    <script>
+    Vue.createApp({
+        data() {
+        return {
+            attendees: []
+        }
+        },
+        async mounted() {
+            this.attendees = await fetch('https://www.twitchcon.com/api/amsterdam-2022/attendees/').then(e=>e.json())
+        }
+    }).mount('#app')
+    </script>
     <!-- https://www.twitchcon.com/api/amsterdam-2022/attendees/ -->
 </body>
 </html>
